@@ -16,3 +16,9 @@ CWLS stands for [ _Canadian Well Logging Society_ ](https://www.cwls.org/)
 > The CWLS (Canadian Well Logging Society) is the oldest organization devoted to log analysis, incorporated in Calgary, Canada in 1957. In that time the society has endeavoured to produce a technical journal with a Canadian slant. The CWLS is thus an appropriate place for those interested in exploring mineral resources in the Western Canadian Sedimentary Basin, the Canadian Arctic, offshore eastern Canada and southern Ontario.
 
 That format is broadly being used in common oil and gass (OnG) industry.
+
+There are several Python package that are being developed in concern of working
+with LAS file format. I suggest you to use
+
+1. [lasio](https://github.com/kinverarity1/lasio), or
+2. [welly](https://github.com/agilescientific/welly).
