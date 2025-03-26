@@ -1,3 +1,5 @@
 /Data_Original
 /.ipynb_checkpoints
+/__marimo__/
+/__pycache__/
 *.png
