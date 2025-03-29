@@ -2,5 +2,7 @@
 /.ipynb_checkpoints
 /__marimo__/
 /__pycache__/
+*/__marimo__/
+*/__pycache__/
 .DS_Store
 *.png

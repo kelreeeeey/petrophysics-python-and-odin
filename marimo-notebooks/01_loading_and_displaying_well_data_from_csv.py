@@ -1,16 +1,12 @@
 import marimo
 
-__generated_with = "0.11.28"
+__generated_with = "0.11.30"
 app = marimo.App()
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        ## 1. Loading and Displaying Well Data From CSV
-        """
-    )
+    mo.md(r"""## 1. Loading and Displaying Well Data From CSV""")
     return
 
 
@@ -19,6 +15,8 @@ def _(mo):
     mo.md(
         r"""
         Created By: Andy McDonald
+
+        Modified By: T. S. Kelrey
         """
     )
     return
@@ -26,11 +24,7 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        The following tutorial illustrates loading basic well log data from a csv file by using pandas, and displaying the data using the plotting option available in pandas. 
-        """
-    )
+    mo.md(r"""The following tutorial illustrates loading basic well log data from a csv file by using pandas, and displaying the data using the plotting option available in pandas.""")
     return
 
 
@@ -43,17 +37,13 @@ def _():
 
 @app.cell
 def _(pd):
-    well = pd.read_csv("Data/L0509WellData.csv", header=0)
+    well = pd.read_csv("../Data/L0509WellData.csv", header=0)
     return (well,)
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        To check that the data has been loaded in correctly, we can use the .head() function in pandas to view the first 5 rows and the header.
-        """
-    )
+    mo.md(r"""To check that the data has been loaded in correctly, we can use the .head() function in pandas to view the first 5 rows and the header.""")
     return
 
 
@@ -65,11 +55,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        We can also view some statistics on the curves by using the describe() function.
-        """
-    )
+    mo.md(r"""We can also view some statistics on the curves by using the describe() function.""")
     return
 
 
@@ -81,11 +67,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        Before carrying out any displaying of data or calculations, we carry out some data cleansing. The first is the conversion of null values, represented by -999.25, to a Not a Number (NaN). We can achieve this using the replace function.
-        """
-    )
+    mo.md(r"""Before carrying out any displaying of data or calculations, we carry out some data cleansing. The first is the conversion of null values, represented by -999.25, to a Not a Number (NaN). We can achieve this using the replace function.""")
     return
 
 
@@ -97,11 +79,7 @@ def _(np, well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        If we now call the describe and head functions on the well dataframe, we can see that the nulls have been been replaced.
-        """
-    )
+    mo.md(r"""If we now call the describe and head functions on the well dataframe, we can see that the nulls have been been replaced.""")
     return
 
 
@@ -119,11 +97,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        By default, the well.head() function produces the first 5 rows of data. We can extend this by passing in a value to the head function.
-        """
-    )
+    mo.md(r"""By default, the well.head() function produces the first 5 rows of data. We can extend this by passing in a value to the head function.""")
     return
 
 
@@ -135,47 +109,31 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        Now we have some data appearing in the GR column.
-        """
-    )
+    mo.md(r"""Now we have some data appearing in the GR column.""")
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        ### Viewing Data on a Log Plot
-        """
-    )
+    mo.md(r"""### Viewing Data on a Log Plot""")
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        With pandas, we can quickly bring up a plot of our well data by using the .plot() function on our well dataframe. <br><br>If we just specify the x and y axis, we can generate a simple line plot.
-        """
-    )
+    mo.md(r"""With pandas, we can quickly bring up a plot of our well data by using the .plot() function on our well dataframe. <br><br>If we just specify the x and y axis, we can generate a simple line plot.""")
     return
 
 
 @app.cell
 def _(well):
-    well.plot(x = 'DEPTH', y = 'GR')
+    well.plot(x = 'GR', y = 'DEPTH') # Depth should be in the vertical axis
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        We can change the type of plot by using the keyword kind and passing in the word scatter. In this example we have a familiar density neutron crossplot. <b>Note</b> that we can change the y-axis scales so that they are flipped and show increasing porosity as you move up the axis.
-        """
-    )
+    mo.md(r"""We can change the type of plot by using the keyword kind and passing in the word scatter. In this example we have a familiar density neutron crossplot. <b>Note</b> that we can change the y-axis scales so that they are flipped and show increasing porosity as you move up the axis.""")
     return
 
 
@@ -206,11 +164,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        Data can also be easily displayed as a histogram in the form of bars:
-        """
-    )
+    mo.md(r"""Data can also be easily displayed as a histogram in the form of bars:""")
     return
 
 
@@ -222,11 +176,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        Or using a Kernel Density Estimate:
-        """
-    )
+    mo.md(r"""Or using a Kernel Density Estimate:""")
     return
 
 
@@ -238,11 +188,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        That is all for this short tutorial. In the next one we will take our plotting to the next level and construct the familiar log plot using matplotlib.
-        """
-    )
+    mo.md(r"""That is all for this short tutorial. In the next one we will take our plotting to the next level and construct the familiar log plot using matplotlib.""")
     return
 
 
