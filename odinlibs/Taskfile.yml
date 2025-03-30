@@ -1,0 +1,35 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  build_lasloading:
+    cmds:
+      - odin build ./lasloding -out:./lasloding.exe
+    silent: false
+    method: none
+    aliases:
+      - blas
+    generates:
+      - ./lasloding.exe
+    sources:
+      - ./lasloding/*.odin
+      # - ../../lasio-odin/lasio-odin/lasio/*.odin
+
+  lasloading:
+    deps:
+      - build_lasloading
+    cmds:
+      - ./lasloding.exe ../Data/L0509_comp.las
+    silent: false
+    method: none
+    aliases:
+      - rlas

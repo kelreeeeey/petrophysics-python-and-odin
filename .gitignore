@@ -5,4 +5,8 @@
 */__marimo__/
 */__pycache__/
 .DS_Store
+
 *.png
+*.ini
+*.exe
+*.pdb

@@ -1,16 +1,12 @@
 import marimo
 
-__generated_with = "0.11.28"
+__generated_with = "0.11.31"
 app = marimo.App()
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        ## 5. Petrophysical Calculations
-        """
-    )
+    mo.md(r"""## 5. Petrophysical Calculations""")
     return
 
 
@@ -19,6 +15,8 @@ def _(mo):
     mo.md(
         r"""
         Created By: Andy McDonald
+
+        Modified By: T. S. Kelrey
 
         The following tutorial illustrates how to calculate key petrophysical properties using pandas
         """
@@ -36,11 +34,7 @@ def _():
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        #### Shale Volume Function
-        """
-    )
+    mo.md(r"""#### Shale Volume Function""")
     return
 
 
@@ -60,11 +54,7 @@ def _(shale_volume):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        #### Density Porosity Function
-        """
-    )
+    mo.md(r"""#### Density Porosity Function""")
     return
 
 
@@ -84,11 +74,7 @@ def _(density_porosity):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        #### Water Saturation Functions
-        """
-    )
+    mo.md(r"""#### Water Saturation Functions""")
     return
 
 
@@ -113,7 +99,7 @@ def sw_simandoux():
         A = (1 - vshale) * archieA * rw / (phie ** archieM)
         B = A * vshale / (2 * rshale)
         C = A / rt
-    
+
         sw = ((B **2 + C)**0.5 - B) **(2 / archieN)
         return sw
     return (sw_simandoux,)
@@ -127,17 +113,13 @@ def _(sw_simandoux):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        ### Loading Well Data From CSV
-        """
-    )
+    mo.md(r"""### Loading Well Data From CSV""")
     return
 
 
 @app.cell
 def _(pd):
-    well = pd.read_csv("Data/15_9-19.csv", header=0, skiprows=[1])
+    well = pd.read_csv("../Data/15_9-19.csv", header=0, skiprows=[1])
     return (well,)
 
 
@@ -163,6 +145,7 @@ def _(well):
 def _(plt, well):
     well['GR'].plot(kind='hist', bins=230)
     plt.xlim(0, 250)
+    plt.show()
     return
 
 
@@ -236,11 +219,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        ### Creating a Log Plot to Display the Results
-        """
-    )
+    mo.md(r"""### Creating a Log Plot to Display the Results""")
     return
 
 
@@ -339,12 +318,12 @@ def _(plt, well):
     ax7.set_xticks([0, 0.25, 0.5])
 
     # Sw track
-    ax8.plot("SW_LIM", "DEPTH", data = well, color = "black")
+    ax8.plot("SW_LIM", "DEPTH", data = well, color = "white")
     ax8.set_xlabel("SW - Archie")
     ax8.set_xlim(0, 1)
-    ax8.xaxis.label.set_color("black")
-    ax8.tick_params(axis='x', colors="black")
-    ax8.spines["top"].set_edgecolor("black")
+    ax8.xaxis.label.set_color("white")
+    ax8.tick_params(axis='x', colors="white")
+    ax8.spines["top"].set_edgecolor("white")
     ax8.set_xticks([0, 0.5, 1])
 
     # Sw track
@@ -364,9 +343,10 @@ def _(plt, well):
         ax.xaxis.set_ticks_position("top")
         ax.xaxis.set_label_position("top")
         ax.spines["top"].set_position(("axes", 1.02))
-    
-    
+
+
     plt.tight_layout()
+    plt.show()
     return (
         ax,
         ax1,

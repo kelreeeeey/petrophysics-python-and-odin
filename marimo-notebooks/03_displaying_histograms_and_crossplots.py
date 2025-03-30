@@ -1,16 +1,12 @@
 import marimo
 
-__generated_with = "0.11.28"
+__generated_with = "0.11.31"
 app = marimo.App()
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        ## 3 - Displaying Histograms and Crossplots
-        """
-    )
+    mo.md(r"""## 3 - Displaying Histograms and Crossplots""")
     return
 
 
@@ -19,6 +15,8 @@ def _(mo):
     mo.md(
         r"""
         Created by: Andy McDonald
+
+        Modified by: T. S. Kelrey
         """
     )
     return
@@ -26,31 +24,19 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        The following tutorial illustrates how to display well data from a LAS file on histograms and crossplots.
-        """
-    )
+    mo.md(r"""The following tutorial illustrates how to display well data from a LAS file on histograms and crossplots.""")
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        ### Loading Well Data from CSV
-        """
-    )
+    mo.md(r"""### Loading Well Data from CSV""")
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        The following cells load data in from a CSV file and replace the null values (-999.25) with Not a Number (NaN) values. More detail can be found in 1. Loading and Displaying Well Data From CSV.
-        """
-    )
+    mo.md(r"""The following cells load data in from a CSV file and replace the null values (-999.25) with Not a Number (NaN) values. More detail can be found in 1. Loading and Displaying Well Data From CSV.""")
     return
 
 
@@ -64,7 +50,7 @@ def _():
 
 @app.cell
 def _(pd):
-    well = pd.read_csv("data/L0509WellData.csv", header=0)
+    well = pd.read_csv("../Data/L0509WellData.csv", header=0)
     return (well,)
 
 
@@ -82,11 +68,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        ### Displaying data on a histogram
-        """
-    )
+    mo.md(r"""### Displaying data on a histogram""")
     return
 
 
@@ -113,11 +95,7 @@ def _(plt, well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        Displaying a simple histogram can be done by calling the .hist function on the well dataframe and specifying the column.
-        """
-    )
+    mo.md(r"""Displaying a simple histogram can be done by calling the .hist function on the well dataframe and specifying the column.""")
     return
 
 
@@ -129,11 +107,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        The number of bins can be controled by the bins parameter:
-        """
-    )
+    mo.md(r"""The number of bins can be controled by the bins parameter:""")
     return
 
 
@@ -145,11 +119,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        We can also change the opacity of the bars by using the alpha parameter:
-        """
-    )
+    mo.md(r"""We can also change the opacity of the bars by using the alpha parameter:""")
     return
 
 
@@ -161,11 +131,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        #### Plotting multiple histograms on one plot
-        """
-    )
+    mo.md(r"""#### Plotting multiple histograms on one plot""")
     return
 
 
@@ -189,11 +155,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        We can remove the depth curve from our list and focus on our curves. The same line can be applied to other curves that need removing.
-        """
-    )
+    mo.md(r"""We can remove the depth curve from our list and focus on our curves. The same line can be applied to other curves that need removing.""")
     return
 
 
@@ -221,21 +183,13 @@ def _(cols_to_plot, plt, well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        ### Displaying data on a crossplot (Scatterplot)
-        """
-    )
+    mo.md(r"""### Displaying data on a crossplot (Scatterplot)""")
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        As seen in the first notebook, we can display a crossplot by simply doing the following. using the c argument we can add a third curve to colour the data.
-        """
-    )
+    mo.md(r"""As seen in the first notebook, we can display a crossplot by simply doing the following. using the c argument we can add a third curve to colour the data.""")
     return
 
 
@@ -248,11 +202,7 @@ def _(well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        We can take the above crossplot and create a 3D version. First we need to make sure the Jupyter notbook is setup for displaying interactive 3D plots using the following command.
-        """
-    )
+    mo.md(r"""We can take the above crossplot and create a 3D version. First we need to make sure the Jupyter notbook is setup for displaying interactive 3D plots using the following command.""")
     return
 
 
@@ -273,11 +223,7 @@ def _(plt, well):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        If we want to have multiple crossplots on view, we can do this by:
-        """
-    )
+    mo.md(r"""If we want to have multiple crossplots on view, we can do this by:""")
     return
 
 
