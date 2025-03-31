@@ -50,7 +50,7 @@ def _():
 
 @app.cell
 def _(pd):
-    well = pd.read_csv("../Data/L0509WellData.csv", header=0)
+    well = pd.read_csv("Data/L0509WellData.csv", header=0)
     return (well,)
 
 

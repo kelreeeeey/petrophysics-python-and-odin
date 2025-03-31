@@ -1,16 +1,12 @@
 import marimo
 
-__generated_with = "0.11.28"
+__generated_with = "0.11.31"
 app = marimo.App()
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        ### 4 - Displaying Core Data and Deriving a Poro Perm Relationship
-        """
-    )
+    mo.md(r"""### 4 - Displaying Core Data and Deriving a Poro Perm Relationship""")
     return
 
 
@@ -19,6 +15,8 @@ def _(mo):
     mo.md(
         r"""
         Created By: Andy McDonald
+
+        Modified By: T. S. Kelrey
         <br><br>
         The following short tutorial illustrates the process of loading in core data from a CSV file, creating poro-perm crossplots, and deriving a poro-perm relationship using numpy.
         """
@@ -54,11 +52,7 @@ def _(core_data):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        We can make a quick scatter plot by:
-        """
-    )
+    mo.md(r"""We can make a quick scatter plot by:""")
     return
 
 
@@ -70,11 +64,7 @@ def _(core_data):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        There is one main problem with previous plot. Poro-perm data is normally presented on semilog scale, where the y-axis is logarithmic and the x-axis set to linear. We can change this by using the yscale('log') method.
-        """
-    )
+    mo.md(r"""There is one main problem with previous plot. Poro-perm data is normally presented on semilog scale, where the y-axis is logarithmic and the x-axis set to linear. We can change this by using the yscale('log') method.""")
     return
 
 
@@ -88,11 +78,7 @@ def _(core_data, plt):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        We can further refine the scatter plot by removing the scientific notation on the y-axis.
-        """
-    )
+    mo.md(r"""We can further refine the scatter plot by removing the scientific notation on the y-axis.""")
     return
 
 
@@ -109,16 +95,13 @@ def _(core_data, plt):
     for _axis in [_ax.yaxis, _ax.xaxis]:
         _formatter = FuncFormatter(lambda y, _: '{:.16g}'.format(y))
         _axis.set_major_formatter(_formatter)
+    plt.show()
     return (FuncFormatter,)
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        We can derive a linear regression by using the polyfit function from numpy. As we are working with a semi-log plot, we need to calculate log base 10 of the core permeability.
-        """
-    )
+    mo.md(r"""We can derive a linear regression by using the polyfit function from numpy. As we are working with a semi-log plot, we need to calculate log base 10 of the core permeability.""")
     return
 
 
@@ -154,21 +137,13 @@ def _(x_1):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        The result of the regression is: $10^{(0.16911398  * CPOR - 1.61346487)}$
-        """
-    )
+    mo.md(r"""The result of the regression is: $10^{(0.16911398  * CPOR - 1.61346487)}$""")
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        Using the code from the previous plot, we can now add a new line with our x-axis set to porosity and our y-axis set to an equation. Note that we have to use the equation above to reverse the log base 10 function used when deriving the function.
-        """
-    )
+    mo.md(r"""Using the code from the previous plot, we can now add a new line with our x-axis set to porosity and our y-axis set to an equation. Note that we have to use the equation above to reverse the log base 10 function used when deriving the function.""")
     return
 
 
@@ -189,11 +164,7 @@ def _(FuncFormatter, core_data, plt, x_1):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        Our next step is to calculate a predicted permeability using our new equation and add it as a new column in the pandas dataframe.
-        """
-    )
+    mo.md(r"""Our next step is to calculate a predicted permeability using our new equation and add it as a new column in the pandas dataframe.""")
     return
 
 
@@ -211,11 +182,7 @@ def _(core_data):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-        We can then make a quick plot of our prediction vs the original measurement. To get an idea of how well the prediction did, we can add a 1 to 1 line to aid the visualisation.
-        """
-    )
+    mo.md(r"""We can then make a quick plot of our prediction vs the original measurement. To get an idea of how well the prediction did, we can add a 1 to 1 line to aid the visualisation.""")
     return
 
 
